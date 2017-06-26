@@ -1,4 +1,4 @@
-package com.gaurav.model;
+package com.gaurav.bean;
 
 public class User {
 	 

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.gaurav.model.User;
-import com.gaurav.util.Authenticator;
+import com.gaurav.bean.User;
+import com.gaurav.dao.Authenticator;
 
 /**
  * Servlet implementation class Login

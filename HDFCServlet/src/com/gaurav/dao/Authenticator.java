@@ -1,4 +1,4 @@
-package com.gaurav.util;
+package com.gaurav.dao;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,7 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.gaurav.model.User;
+import com.gaurav.bean.User;
+import com.gaurav.util.DBConnection;
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 public class Authenticator {
@@ -33,24 +34,21 @@ public class Authenticator {
 			
 			resultSet = stmt.executeQuery(); //Here table name is users and userName,password are columns. fetching all the records and storing in a resultSet.
 			
-		
-		
-			System.out.println("resultset"+resultSet);
 			while(resultSet.next()) // Until next row is present otherwise it return false
 			{
 				userNameDB = resultSet.getString("fname"); //fetch the values present in database
 				passwordDB = resultSet.getString("pass");
-				System.out.println(userNameDB+"  pass  "+passwordDB);
+			
 				if(userName.equals(userNameDB) && password.equals(passwordDB))
 				{
-					System.out.println("CONNECTION CLOSED"+con);
+				
 					con.close();
-					System.out.println("CONNECTION CLOSEDAfter"+con);
+					;
 					return "success"; ////If the user entered values are already present in database, which means user has already registered so I will return SUCCESS message.
 				}
 			}
 			con.close();
-			System.out.println("CONNECTION CLOSED");
+			
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
