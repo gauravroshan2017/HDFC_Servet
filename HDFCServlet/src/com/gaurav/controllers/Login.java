@@ -8,43 +8,41 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.gaurav.daoImpl.Authenticator;
 import com.gaurav.model.User;
+import com.gaurav.util.Authenticator;
 
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Login")
+@WebServlet("/LoginController")
 public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		RequestDispatcher rd = null;
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		RequestDispatcher rd = null;
- 
+		User user = new User(username, password);
+		
+		
 		Authenticator authenticator = new Authenticator();
-		String result = authenticator.authenticate(username, password);
+		String result = authenticator.authenticate(user);
+		
 		if (result.equals("success")) {
-			rd = request.getRequestDispatcher("/success.jsp");
-			User user = new User(username, password);
+			
+			session.setAttribute("uname", username);
+			rd = request.getRequestDispatcher("/WEB-INF/jsp/success.jsp");		
 			request.setAttribute("user", user);
-		} else {
-			rd = request.getRequestDispatcher("/error.jsp");
+		} else {		
+			rd = request.getRequestDispatcher("/WEB-INF/jsp/error.jsp");		
 		}
+		
 		rd.forward(request, response);
+	
 	}
 	}
 
