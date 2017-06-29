@@ -20,14 +20,12 @@ public class UserAction extends HttpServlet {
 		RequestDispatcher rd = null;
 		if(id.equals("registerUser"))
 		{
-			System.out.println("controls comes here");
 			rd = request.getRequestDispatcher("/WEB-INF/jsp/registerUser.jsp");	
 		}
 		if(id.equals("loginUser"))
 		{
 			rd = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");	
-		}
-		System.out.println("insode do get method"+id);
+		}		
 		rd.forward(request, response);
 	}
 

@@ -8,8 +8,8 @@
 </head>
 <body>
 	<form action="LoginController" method="post">
-		Enter username : <input type="text" name="username"> <BR>
-		Enter password : <input type="password" name="password"> <BR>
+		Enter username : <input type="text" name="username" required="" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter  username')"> <BR><BR><BR><BR>
+		Enter password : <input type="password" name="password" required="" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter  password')"> <BR>
 		<input type="submit" />
 	</form>
 	

@@ -1,11 +1,11 @@
 package com.gaurav.bean;
 
-public class User {
+public class LoginUser {
 	 
 	private String username;
 	private String password;
  
-	public User(String username, String password){
+	public LoginUser(String username, String password){
 		this.username = username;
 		this.password = password;
 	}
