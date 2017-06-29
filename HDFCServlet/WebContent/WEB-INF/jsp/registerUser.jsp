@@ -8,14 +8,18 @@
 <title>Insert title here</title>
 </head>
 	<body>
-        <form method="post" action="register">
-        Name:<input type="text" name="name" /><br/>
-        Password:<input type="password" name="pass" /><br/>
-        Confirm Password:<input type="text" name="cnfPass" /><br/>
-        Address <textarea name="address" cols="40" rows="5"></textarea>
-        Pincode:<input type="number" name="pin" /><br/>
-        <input type="submit" value="Sign Up" />
-        </form>
+	
+	<table border=1px>
+	        <form method="post" action="register">
+	        <tr><td>
+		        Name:</td><td> <input type="text" name="name" /><br/></td></tr>
+		     <tr><td>    Password:</td><td> <input type="password" name="pass" /></td></tr>
+		   <tr><td>      Confirm Password:</td><td> <input type="text" name="cnfPass" /></td></tr>
+		  <tr><td>       Address </td><td> <textarea name="address" cols="40" rows="5"></textarea></td></tr>
+		   <tr><td>      Pincode:</td><td> <input type="number" name="pin" /></td></tr>
+		    <tr><td>     <input type="submit" value="Sign Up" /></td></tr>
+	        </form>
+     </table>
     </body>
 
 </html>
