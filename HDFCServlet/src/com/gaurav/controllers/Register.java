@@ -32,7 +32,7 @@ public class Register extends HttpServlet {
 		String username = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		String address = request.getParameter("address");
-		int pin =Integer.parseInt( request.getParameter("pin"));
+		int pin =Integer.parseInt(request.getParameter("pin"));
 	
 		RegisterUser rg=new RegisterUser(username,pass,address,pin);
 		
@@ -42,11 +42,11 @@ public class Register extends HttpServlet {
 		
 		if (result.equals("success")) {
 			
-			out.print("<p style=\"color:red\">You have successfullly created account</p>");  
+			out.print("<p style=\"color:red\">You have successfully created account</p>");  
 			rd = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");	
 			rd.include(request, response);
 		} else {	
-			out.print("<p style=\"color:red\">User already exitss</p>");  
+			out.print("<p style=\"color:red\">User already exits</p>");  
 			rd = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");	
 			rd.include(request, response);
 		}
