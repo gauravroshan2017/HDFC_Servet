@@ -17,6 +17,7 @@ public class UserAction extends HttpServlet {
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id =request.getParameter("id");
+		System.out.println("controle comes");
 		RequestDispatcher rd = null;
 		if(id.equals("registerUser"))
 		{

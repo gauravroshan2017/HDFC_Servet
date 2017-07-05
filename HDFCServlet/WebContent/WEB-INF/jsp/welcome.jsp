@@ -14,7 +14,6 @@
         alert('Session expired ')
     }, (secondsBeforeExpire - timeToDecide) * 1000);
     
-    
     /* setTimeout(function() {
         alert('Your session is about to timeout in ' + timeToDecide + ' seconds!')
     }, (secondsBeforeExpire - timeToDecide) * 1000); */
@@ -28,7 +27,7 @@
     %><jsp:forward page="login.jsp" /><%
   }
 %>
- 
+ <jsp:include page="logout.jsp" />  
 	Welcome <% 
 	out.println(session.getAttribute("uname"));
 	%>
