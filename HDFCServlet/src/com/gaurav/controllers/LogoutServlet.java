@@ -37,11 +37,12 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();  
+		PrintWriter out=response.getWriter(); 
 		if(session.getAttribute("uname")!=null){
 		session.invalidate();  
         
 		response.setContentType("text/html");  
-        PrintWriter out=response.getWriter();  
+         
           
 
         out.print("You are successfully logged out!");  
@@ -49,6 +50,7 @@ public class LogoutServlet extends HttpServlet {
         out.close();
         }
 		else{
+			out.print("You are successfully logged out!"); 
         	request.getRequestDispatcher("WEB-INF/jsp/login.jsp").include(request, response); 
         }
 		}

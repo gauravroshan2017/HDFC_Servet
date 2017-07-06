@@ -31,7 +31,7 @@
 	Welcome <% 
 	out.println(session.getAttribute("uname"));
 	%>
-	
+<a href="fetchUsersDetails">Fetch user</a> |  
 	
 	 <%-- ${requestScope['user'].username}.  --%>
  
