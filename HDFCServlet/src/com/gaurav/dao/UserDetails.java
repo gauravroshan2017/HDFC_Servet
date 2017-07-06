@@ -41,13 +41,12 @@ public class UserDetails {
         			ru.setPassword(resultSet.getString("pass"));
         			ru.setPin(resultSet.getInt("pin"));
         			lu.add(ru);
-        			System.out.println("control inside resultset"+lu);
+        			
          }
-		
-		
-		
-		
-		con.close();
+         
+         resultSet.close ();
+         s.close ();
+         con.close();
 		
 	}catch(SQLException e){
 		e.printStackTrace();
