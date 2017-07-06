@@ -6,6 +6,10 @@ public class RegisterUser {
 	private String address;
 	private int pin;
 	
+	public RegisterUser()
+	{
+		
+	}
 	public RegisterUser(String fname, String password, String address, int pin) {
 		this.fname = fname;
 		this.password = password;

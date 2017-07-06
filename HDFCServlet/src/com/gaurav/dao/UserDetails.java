@@ -15,12 +15,12 @@ import com.gaurav.util.DBConnection;
 
 public class UserDetails {
 
-	public List<LoginUser> userdetails(LoginUser usr) throws IOException {
+	public List<RegisterUser> userdetails() throws IOException {
 	Connection con = null;
 	Statement statement = null;
 	ResultSet resultSet = null;
 	
-	List<LoginUser> lu = new ArrayList();
+	List<RegisterUser> lu = new ArrayList();
 	try
 	{
 		con = DBConnection.createConnection();
@@ -35,7 +35,13 @@ public class UserDetails {
          
          while(resultSet.next())
          {
-        	 RegisterUser ru=new RegisterUser();
+        	 RegisterUser ru=new RegisterUser();			 
+        			ru.setFname(resultSet.getString("fname"));
+        			ru.setAddress(resultSet.getString("address"));
+        			ru.setPassword(resultSet.getString("pass"));
+        			ru.setPin(resultSet.getInt("pin"));
+        			lu.add(ru);
+        			System.out.println("control inside resultset"+lu);
          }
 		
 		

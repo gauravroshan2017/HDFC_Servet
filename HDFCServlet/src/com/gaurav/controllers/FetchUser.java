@@ -34,7 +34,7 @@ public class FetchUser extends HttpServlet {
 		if(session.getAttribute("uname")!=null)
 		{
 			UserDetails us=new UserDetails();
-			us.userdetails(usr);
+			us.userdetails();
 		}
 		
 	}
