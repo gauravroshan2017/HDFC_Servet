@@ -25,8 +25,8 @@
         <tr>
             <td>Employee ID: <c:out value="${employee.fname}"/></td>
             <td>Employee Pass: <c:out value="${employee.pass}"/></td>  
-            <td>Employee Pass: <c:out value="${employee.address}"/></td>  
-             <td>Employee Pass: <c:out value="${employee.pin}"/></td>  
+            <td>Employee Address: <c:out value="${employee.address}"/></td>  
+             <td>Employee Pin: <c:out value="${employee.pin}"/></td>  
         </tr>
     </c:forEach>
 </table>
