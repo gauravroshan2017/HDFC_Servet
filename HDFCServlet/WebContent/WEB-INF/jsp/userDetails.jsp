@@ -7,11 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>User Detail page</title>
+<jsp:include page="logout.jsp" />
 </head>
 <body>
-<% List data= (List)request.getAttribute("users");
-	
-	%>
+ 
 <table border="1" width="303">
 	<tr>
 		<td width="119"><b>Fname</b></td>
@@ -19,14 +18,15 @@
 		<td width="119"><b>Address</b></td>
 		<td width="168"><b>Pin</b></td>
 	</tr>
-	<% out.println(data); %>
 	
-	<c:forEach items="${data}" var="employee">
+	
+
+	<c:forEach var="user" items="${users}">
         <tr>
-            <td>Employee ID: <c:out value="${employee.fname}"/></td>
-            <td>Employee Pass: <c:out value="${employee.pass}"/></td>  
-            <td>Employee Address: <c:out value="${employee.address}"/></td>  
-             <td>Employee Pin: <c:out value="${employee.pin}"/></td>  
+            <td><c:out value="${user.fname}"/></td>
+            <td> <c:out value="${user.password}"/></td>  
+            <td> <c:out value="${user.address}"/></td>  
+             <td> <c:out value="${user.pin}"/></td>  
         </tr>
     </c:forEach>
 </table>

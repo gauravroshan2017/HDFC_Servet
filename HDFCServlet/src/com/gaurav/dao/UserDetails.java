@@ -27,18 +27,15 @@ public class UserDetails {
 		Statement s = con.createStatement();
 		s.executeQuery ("select * from user_info");
 		resultSet = s.getResultSet();
-		 
-                          
-        
-                      
+          
          /* Printing column names */
          
          while(resultSet.next())
          {
         	 RegisterUser ru=new RegisterUser();			 
         			ru.setFname(resultSet.getString("fname"));
-        			ru.setAddress(resultSet.getString("address"));
         			ru.setPassword(resultSet.getString("pass"));
+        			ru.setAddress(resultSet.getString("address"));    			
         			ru.setPin(resultSet.getInt("pin"));
         			lu.add(ru);
         			
