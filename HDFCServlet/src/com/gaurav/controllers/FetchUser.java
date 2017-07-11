@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 
 import com.gaurav.bean.RegisterUser;
 import com.gaurav.dao.UserDetails;
+import com.gaurav.dataTable.DataTableParameters;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * Servlet implementation class FetchUser
@@ -40,9 +43,30 @@ public class FetchUser extends HttpServlet {
 		{
 			UserDetails us=new UserDetails();
 			List<RegisterUser> ru=us.userdetails();
-			 request.setAttribute("users",ru);
-			 out.print("<p style=\"color:red\">User details are:</p>");  
+			
+			
+			// below code is used for data able 
+			
+			DataTableParameters dataTableParam = new DataTableParameters();
+			dataTableParam.setAaData(ru);
+
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            // Convert Java Object to Json
+            String json = gson.toJson(dataTableParam);
+            
+            System.out.println("json data os "+json);
+            response.getWriter().print(json);
+            
+            rd = request.getRequestDispatcher("/WEB-INF/jsp/userDetailsGrid.jsp");	
+			 rd.include(request, response);
+			
+			/* request.setAttribute("users",ru);
+	
 			 rd = request.getRequestDispatcher("/WEB-INF/jsp/userDetails.jsp");	
+			 rd.include(request, response);*/
+		}else
+		{
+			rd = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");	
 			 rd.include(request, response);
 		}
 		
